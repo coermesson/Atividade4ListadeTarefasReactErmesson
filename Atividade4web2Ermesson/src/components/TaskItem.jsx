@@ -1,21 +1,27 @@
 function TaskItem({ titulo, concluida, onConcluir, onExcluir }) {
   return (
-    <div>
-      <h3>{titulo}</h3>
+    <div className={`task-card ${concluida ? "completed" : ""}`}>
+      <div className="task-content">
+        <div>
+          <h3>{titulo}</h3>
 
-      <p>
-        Status: {concluida ? "Concluída" : "Pendente"}
-      </p>
+          <span className={`task-status ${concluida ? "status-completed" : "status-pending"}`}>
+            {concluida ? "Concluída" : "Pendente"}
+          </span>
+        </div>
+      </div>
 
-      {!concluida && (
-        <button onClick={onConcluir}>
-          Concluir
+      <div className="task-actions">
+        {!concluida && (
+          <button className="complete-button" onClick={onConcluir}>
+            Concluir
+          </button>
+        )}
+
+        <button className="delete-button" onClick={onExcluir}>
+          Excluir
         </button>
-      )}
-
-      <button onClick={onExcluir}>
-        Excluir
-      </button>
+      </div>
     </div>
   );
 }

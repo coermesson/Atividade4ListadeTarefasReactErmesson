@@ -1,10 +1,9 @@
 import { useState } from "react";
 
+import "./App.css";
 import Header from "./components/Header";
-import TaskItem from "./components/TaskItem";
 import TaskList from "./components/TaskList";
 import TaskSummary from "./components/TaskSumary";
-
 
 function App() {
   const [tarefas, setTarefas] = useState([
@@ -31,18 +30,20 @@ function App() {
   ]);
 
   return (
-    <div>
-      <Header />
+  
+  <main>
+    <Header />
 
-      <TaskList
-        tarefas={tarefas}
-        setTarefas={setTarefas}
-      />
+    <TaskList
+      tarefas={tarefas}
+      setTarefas={setTarefas}
+    />
 
-      <TaskSummary
-        tarefas={tarefas}
-      />
-    </div>
+    <TaskSummary
+      tarefas={tarefas}
+    />
+  </main>
+
   );
 }
 
